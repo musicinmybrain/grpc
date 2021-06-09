@@ -48,6 +48,13 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE ../..
 make -j4 install
 popd
 
+# Install xxhash
+mkdir -p "third_party/xxhash/cmake/build"
+pushd "third_party/xxhash/cmake/build"
+cmake -DCMAKE_BUILD_TYPE=Release ../../cmake_unofficial
+make -j4 install
+popd
+
 # Install zlib
 mkdir -p "third_party/zlib/cmake/build"
 pushd "third_party/zlib/cmake/build"
@@ -73,6 +80,7 @@ cmake \
   -DgRPC_PROTOBUF_PROVIDER=package \
   -DgRPC_RE2_PROVIDER=package \
   -DgRPC_SSL_PROVIDER=package \
+  -DgRPC_XXHASH_PROVIDER=package \
   -DgRPC_ZLIB_PROVIDER=package \
   ../..
 make -j4 install

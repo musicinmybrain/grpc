@@ -165,6 +165,9 @@ set(gRPC_ABSL_USED_TARGETS
   absl_meta
 )
 
+set(gRPC_XXHASH_PROVIDER "module" CACHE STRING "Provider of xxhash library")
+set_property(CACHE gRPC_XXHASH_PROVIDER PROPERTY STRINGS "module" "package")
+
 set(gRPC_USE_PROTO_LITE OFF CACHE BOOL "Use the protobuf-lite library")
 
 if(UNIX)
